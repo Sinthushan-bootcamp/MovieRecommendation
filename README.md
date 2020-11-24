@@ -2,7 +2,7 @@
 Recommending a Movie Recommender System using different techniques like correlation matrix, machine learning SVD (Singular Value Decomposition) and ALS (Alternating Least Squre) method.
 # Group 3 Project-3 (UofT FinTech Bootcamp)
 
-![Recommender Systems](images/CustomersWhoBought3.jpg)
+![Recommender Systems](Images/CustomersWhoBought3.jpg)
 
 __Title__: Recommender System using three different techniques and their comparison<br />
 __Group members__: Amar M, Nitesh Jain, Sinthushan Sooriyakuamar, Veldurai Lakshmanan <br />
@@ -14,7 +14,7 @@ Most internet products we use today are powered by recommender systems. Youtube,
 
 Content based approach utilizes a series of discrete characteristics of an item in order to recommend additional items with similar properties.
 
-![An Overview of Recommendation Systems](images/comparative_recommender.png)
+![An Overview of Recommendation Systems](Images/comparative_recommender.png)
 
 Collaborative filtering approach builds a model from a user’s past behaviors (items previously purchased or selected and/or numerical ratings given to those items) as well as similar decisions made by other users. This model is then used to predict items (or ratings for items) that the user may have an interest in.
 
@@ -83,7 +83,7 @@ credits_df['main_actor_gender'] = main_actor_gender
 
 
 The Main dataframe looks like this.
-![The main dataframe](images/combined_df.png)
+![The main dataframe](Images/combined_df.png)
 
 
 ## 2. Generating Recommendations
@@ -96,11 +96,11 @@ The reason why we did this was mainly due to the nature of the corrwith() functi
 Our algorithm begins by finding the correlation between our first inputted movie and the first movie column in the movies DataFrame. Then it repeats this process for all of the movie titles in the movies DataFrame — in other words, we’ll repeat this process for every movie in our MovieLens dataset. It is to be noted that the Pearson correlation coefficient is the default correlation method for pandas’ corrwith() function, so technically it is not required to have put method = 'pearson' at the end of the code.
 
 Sample Output of the Correlation Matrix.
-![Correlation Sample](images/corr_sample.png)
+![Correlation Sample](Images/corr_sample.png)
 
 
 Few errors while running the Correlation Matrix.
-![Correlation Errors](images/corr_errors.png)
+![Correlation Errors](Images/corr_errors.png)
 
 
 ### 2.2 Generating Recommendations through Singular Value Decomposition (SVD) Method
@@ -136,16 +136,16 @@ Spark MLlib library for Machine Learning provides a Collaborative Filtering impl
 6. alpha is a parameter applicable to the implicit feedback variant of ALS that governs the baseline confidence in preference observations.
 
 First, the ratings matrix was created.
-![ALS Rating  Matrix](images/als_rating.png)
+![ALS Rating  Matrix](Images/als_rating.png)
 
 Then, an implicit_ALS function was created.
-![ALS Function](images/implicit_als.png)
+![ALS Function](Images/implicit_als.png)
 
 And also, a prediction function was created.
-![ALS Predicction](images/als_predict.png)
+![ALS Predicction](Images/als_predict.png)
 
 The ALS functions were measured using the standard test and an RMSE score of 0.3818 was achieved along with the prediction of movies.
-![ALS Output](images/als_output.png)
+![ALS Output](Images/als_output.png)
 
 
 ## 3. Conclusion and Possible Improvements
