@@ -20,14 +20,14 @@ Collaborative filtering approach builds a model from a user’s past behaviors (
 
 Hybrid approach combines the previous two approaches. Most businesses probably use hybrid approach in their production recommender systems.
 
-This project
+This project tries to touch on all three techniques.
 
 ### 1.1 Technical Tools Used
 
 | Tool | Details |
 | ---- | ------- |
 | Language | Python 3.0 implemented through Jupyter Notebook |
-| Libraries |  Data preparation and Visualization: Pandas, Surprise, SciKit Learn, Numpy and  |
+| Libraries |  Data preparation and Visualization: Pandas, Surprise, SciKit Learn, Numpy and Seaborn  |
 
 
 ### 1.2 Related Files
@@ -95,12 +95,32 @@ The reason why we did this was mainly due to the nature of the corrwith() functi
 
 Our algorithm begins by finding the correlation between our first inputted movie and the first movie column in the movies DataFrame. Then it repeats this process for all of the movie titles in the movies DataFrame — in other words, we’ll repeat this process for every movie in our MovieLens dataset. It is to be noted that the Pearson correlation coefficient is the default correlation method for pandas’ corrwith() function, so technically it is not required to have put method = 'pearson' at the end of the code.
 
+Sample Output of the Correlation Matrix.
+![Correlation Sample](Images/corr_sample.png)
+
+
+Few errors while running the Correlation Matrix.
+![Correlation Errors](Images/corr_errors.png)
+
+
 ### 2.2 Generating Recommendations through Singular Value Decomposition (SVD) Method
 The Singular Value Decomposition (SVD), a method from linear algebra that has been generally used as a dimensionality reduction technique in machine learning. SVD is a matrix factorisation technique, which reduces the number of features of a dataset by reducing the space dimension from N-dimension to K-dimension (where K < N). 
 In the context of the recommender system, the SVD is used as a collaborative filtering technique. It uses a matrix structure where each row represents a user, and each column represents an item. The elements of this matrix are the ratings that are given to items by users.
 
 The factorisation of this matrix is done by the singular value decomposition. It finds factors of matrices from the factorisation of a high-level (user-item-rating) matrix.The essence of SVD is that it decomposes a matrix of any shape into a product of 3 matrices with nice mathematical properties: A=USVT.
 By lucid analogy, a number can decompose into 3 numbers to always have the smallest prime in the middle. E.g 24=3×2×4 or 57=1×3×19.
+
+````
+# Load the data
+
+reader = Reader()
+data = Dataset.load_from_df(ratings_df[['userId', 'movieId', 'rating']], reader)
+
+#Initiate the SVD algo along with hyperparameters
+algo = SVD()
+cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+
+````
 
 ### 2.3 Generating Recommendations through Alternating Least Square (ALS) Method
 
@@ -115,7 +135,25 @@ Spark MLlib library for Machine Learning provides a Collaborative Filtering impl
 5. implicitPrefs specifies whether to use the explicit feedback ALS variant or one adapted for implicit feedback data.
 6. alpha is a parameter applicable to the implicit feedback variant of ALS that governs the baseline confidence in preference observations.
 
+First, the ratings matrix was created.
+![ALS Rating  Matrix](Images/als_rating.png)
+
+Then, an implicit_ALS function was created.
+![ALS Function](Images/implicit_als.png)
+
+And also, a prediction function was created.
+![ALS Predicction](Images/als_predict.png)
+
+The ALS functions were measured using the standard test and an RMSE score of 0.3818 was achieved along with the prediction of movies.
+![ALS Output](Images/als_output.png)
+
+
 ## 3. Conclusion and Possible Improvements
+
+There is no clear winner to design a recommender system and it depends vastly on the project requirements and the resources at hand. We tried to build three different models using three different hypothesis and each has its own applicability. Few areas that can be looked at are:-
+1. The recommendation based on movies in different languages also.
+2. The recommendations based on sequels, which share the same/ similar names. Even the movies with names or keywords containing synonyms can be looked at using Natural Language Processing (NLTK) library.
+3. Another recommendation could be from actors or directors having worked in different movies. 
 
 ## 4. References
  1. https://towardsdatascience.com/prototyping-a-recommender-system-step-by-step-part-1-knn-item-based-collaborative-filtering-637969614ea
