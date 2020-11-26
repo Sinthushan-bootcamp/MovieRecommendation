@@ -88,6 +88,8 @@ The Main dataframe looks like this.
 
 ## 2. Generating Recommendations
 Once the dataframe is ready, it can used to generate recommendations based on certain parameters.
+![Video Recommendation](Images/video_recommend.jpg)
+
 
 ### 2.1 Generating Recommendations through Correlation Matrix
 To start, we first made a DataFrame which consists of titles as its column and userId as its rows with the values of the DataFrame being the ratings of each viewer.
@@ -121,6 +123,16 @@ algo = SVD()
 cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
 
 ````
+
+Based on the movies that were rated by a user, new recommendations were made by the algo. Depending upon the user's rating to different movies, a list of recommendations is made to the user.
+
+Movies Already rated by the user
+![SVD data](Images/already_rated_svd.png)
+
+Predictions made by the algo based on user's previously rated movies.
+
+![SVD Predictions](Images/predictions_svd.png)
+
 
 ### 2.3 Generating Recommendations through Alternating Least Square (ALS) Method
 
@@ -160,3 +172,10 @@ There is no clear winner to design a recommender system and it depends vastly on
  2. https://www.kaggle.com/rounakbanik/movie-recommender-systems
  3. https://www.kaggle.com/fabiendaniel/film-recommendation-engine
  4. https://towardsdatascience.com/prototyping-a-recommender-system-step-by-step-part-2-alternating-least-square-als-matrix-4a76c58714a1
+ 5. https://towardsdatascience.com/build-recommendation-system-with-pyspark-using-alternating-least-squares-als-matrix-factorisation-ebe1ad2e7679
+ 6. https://medium.com/analytics-vidhya/simple-movie-recommender-system-with-correlation-coefficient-with-python-e6cb31dae01e
+ 7. https://towardsdatascience.com/recommender-system-singular-value-decomposition-svd-truncated-svd-97096338f361#:~:text=Recommending%20movies%20using%20SVD,features%20of%20item%2Duser%20matrices
+8. https://www.kaggle.com/subhamoybhaduri/diff-approaches-of-building-recommender-system
+
+
+
