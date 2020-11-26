@@ -122,6 +122,16 @@ cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
 
 ````
 
+Based on the movies that were rated by a user, new recommendations were made by the algo. Depending upon the user's rating to different movies, a list of recommendations is made to the user.
+
+Movies Already rated by the user
+![SVD data](Images/already_rated_svd.png)
+
+Predictions made by the algo based on user's previously rated movies.
+
+![SVD Predictions](Images/predictions_svd.png)
+
+
 ### 2.3 Generating Recommendations through Alternating Least Square (ALS) Method
 
 Collaborative Filtering algorithm is one of the popular successful techniques of RS, which aims to find users closely similar to the active one in order to recommend items. Collaborative filtering (CF) with alternating least squares (ALS) algorithm is the most imperative techniques which are used for building a movie recommendation engine. The ALS algorithm is one of the models of matrix factorization related CF which is considered as the values in the item list of user matrix. As there is a need to perform analysis on the ALS algorithm by selecting different parameters which can eventually help in building efficient movie recommender engine.
@@ -160,3 +170,10 @@ There is no clear winner to design a recommender system and it depends vastly on
  2. https://www.kaggle.com/rounakbanik/movie-recommender-systems
  3. https://www.kaggle.com/fabiendaniel/film-recommendation-engine
  4. https://towardsdatascience.com/prototyping-a-recommender-system-step-by-step-part-2-alternating-least-square-als-matrix-4a76c58714a1
+ 5. https://towardsdatascience.com/build-recommendation-system-with-pyspark-using-alternating-least-squares-als-matrix-factorisation-ebe1ad2e7679
+ 6. https://medium.com/analytics-vidhya/simple-movie-recommender-system-with-correlation-coefficient-with-python-e6cb31dae01e
+ 7. https://towardsdatascience.com/recommender-system-singular-value-decomposition-svd-truncated-svd-97096338f361#:~:text=Recommending%20movies%20using%20SVD,features%20of%20item%2Duser%20matrices
+8. https://www.kaggle.com/subhamoybhaduri/diff-approaches-of-building-recommender-system
+
+
+
