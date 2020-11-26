@@ -35,9 +35,9 @@ This project tries to touch on all three techniques.
 [Movie Recommender ipynb File](Group_3_Project_3_Movie_Recommendation.ipynb)
 
 [Credits CSV File](Data/credits.csv)  
-[Keywords CSV File](Data/keywords.csv)  
+
 [Movies Database CSV File](Data/movies_metadata.csv)  
-[Ratings CSV File](Data/ratings.csv)  
+
 [Ratings small CSV File](Data/ratings_small.csv)  
 
 
@@ -112,26 +112,34 @@ In the context of the recommender system, the SVD is used as a collaborative fil
 The factorisation of this matrix is done by the singular value decomposition. It finds factors of matrices from the factorisation of a high-level (user-item-rating) matrix.The essence of SVD is that it decomposes a matrix of any shape into a product of 3 matrices with nice mathematical properties: A=USVT.
 By lucid analogy, a number can decompose into 3 numbers to always have the smallest prime in the middle. E.g 24=3×2×4 or 57=1×3×19.
 
+The data was collated by synchronising the data types.
 ````
-# Load the data
+# Clean the data
 
-reader = Reader()
-data = Dataset.load_from_df(ratings_df[['userId', 'movieId', 'rating']], reader)
 
-#Initiate the SVD algo along with hyperparameters
-algo = SVD()
-cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+svd_movies_df = movies_df[['id', 'title']]
+svd_movies_df.dtypes
+
+svd_rating_df = ratings_df[['userId', 'movieId','rating']]
+svd_rating_df.dtypes
 
 ````
+A feature matrix was created on which the SVD algo could be applied.
 
-Based on the movies that were rated by a user, new recommendations were made by the algo. Depending upon the user's rating to different movies, a list of recommendations is made to the user.
+![SVD data](Images/svd_feature_matrix.png)
+
+This matrix was used to create prediction table.
+![SVD data](Images/svd_movie_pred.png)
+
+
+Based on the movies that were rated by a user, new recommendations were made by the algo. Depending upon the user's rating to different movies, a list of recommendations is made to the user through a function.
 
 Movies Already rated by the user
-![SVD data](Images/already_rated_svd.png)
+![SVD data](Images/svd_already_rated.png)
 
 Predictions made by the algo based on user's previously rated movies.
 
-![SVD Predictions](Images/predictions_svd.png)
+![SVD Predictions](Images/svd_recommend.png)
 
 
 ### 2.3 Generating Recommendations through Alternating Least Square (ALS) Method
@@ -150,13 +158,16 @@ Spark MLlib library for Machine Learning provides a Collaborative Filtering impl
 First, the ratings matrix was created.
 ![ALS Rating  Matrix](Images/als_rating.png)
 
+A dataframe for top five movies (rated by the user) was created.
+![ALS Dataframe](Images/als_dataframe.png)
+
 Then, an implicit_ALS function was created.
 ![ALS Function](Images/implicit_als.png)
 
 And also, a prediction function was created.
 ![ALS Predicction](Images/als_predict.png)
 
-The ALS functions were measured using the standard test and an RMSE score of 0.3818 was achieved along with the prediction of movies.
+The ALS functions were measured using the standard test and an RMSE score of 0.4713 was achieved along with the prediction of movies.
 ![ALS Output](Images/als_output.png)
 
 
