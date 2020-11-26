@@ -88,6 +88,8 @@ The Main dataframe looks like this.
 
 ## 2. Generating Recommendations
 Once the dataframe is ready, it can used to generate recommendations based on certain parameters.
+![Video Recommendation](Images/video_recommend.jpg)
+
 
 ### 2.1 Generating Recommendations through Correlation Matrix
 To start, we first made a DataFrame which consists of titles as its column and userId as its rows with the values of the DataFrame being the ratings of each viewer.
