@@ -34,7 +34,7 @@ This project tries to touch on all three techniques.
 
 [Movie Recommender ipynb File](Group_3_Project_3_Movie_Recommendation.ipynb)
 
-[Credits Zip File](Data/credit.zip)  
+[Credits Zip File](Data/credits.zip)  
 
 [Movies Database CSV File](Data/movies_metadata.csv)  
 
