@@ -2,7 +2,7 @@
 Recommending a Movie Recommender System using different techniques like correlation matrix, machine learning SVD (Singular Value Decomposition) and ALS (Alternating Least Squre) method.
 # Group 3 Project-3 (UofT FinTech Bootcamp)
 
-![Recommender Systems](Images/CustomersWhoBought3.jpg)
+![Recommender Systems](Images/video_recommend.jpg)
 
 __Title__: Recommender System using three different techniques and their comparison<br />
 __Group members__: Amar M, Nitesh Jain, Sinthushan Sooriyakuamar, Veldurai Lakshmanan <br />
@@ -88,7 +88,7 @@ The Main dataframe looks like this.
 
 ## 2. Generating Recommendations
 Once the dataframe is ready, it can used to generate recommendations based on certain parameters.
-![Video Recommendation](Images/video_recommend.jpg)
+
 
 
 ### 2.1 Generating Recommendations through Correlation Matrix
